@@ -1,11 +1,18 @@
 const { defineConfig } = require("cypress");
 
 module.exports = {
+  reporter: 'cypress-mochawesome-reporter',
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
+    env: {
+      BASE_URL: "https://www.saucedemo.com/", 
+      USER_NAME: "standard_user", 
+      USER_PASSWORD: "secret_sauce"
     },
-    baseUrl: 'https://www.saucedemo.com',
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
+    // baseUrl: process.env.BASE_URL,
     chromeWebSecurity: false
   }
 }
+
