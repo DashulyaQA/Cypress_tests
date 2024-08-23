@@ -5,7 +5,7 @@ import testData from "../../fixtures/credentials.json"
 
 describe('Basic queries with POM', () => {
     beforeEach(() => {
-      LoginPage.open();
+      LoginPage.open('/');
     })
 
     it('Login correct', ()=>{

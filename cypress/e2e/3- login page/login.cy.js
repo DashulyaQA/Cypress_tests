@@ -1,10 +1,11 @@
 /// <reference types="cypress" />
+import LoginPage from "../../support/pageObjects/pages/LoginPage";
 
 
 describe('Basic queries', () => {
-    beforeEach(() => {
-      cy.visit(`/`);
-    })
+  beforeEach(() => {
+    LoginPage.open('/');
+  })
 
     it('Login correct', ()=>{
         cy.get('[data-test="username"]').type('standard_user');
